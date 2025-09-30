@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  app:
+    image: treasury-backend-production:latest
+    build:
+      context: ../../
+      dockerfile: docker/Dockerfile
+    container_name: treasury-backend-production
+    ports:
+      - '3002:3002'
+    env_file:
+      - ../../.env
+    restart: unless-stopped
+
+
+
+# version: '3.8'
+
+# services:
+#   postgres:
+#     image: postgres:latest
+#     container_name: treasury-postgres-production
+#     restart: unless-stopped
+#     ports:
+#       - '5432:5432'
+#     env_file:
+#       - ../../.env
+#     volumes:
+#       - treasury_postgres_production_data:/var/lib/postgresql/data
+
+#   app:
+#     image: treasury-backend-production:latest
+#     build:
+#       context: ../../
+#       dockerfile: docker/Dockerfile
+#     container_name: treasury-backend-production
+#     ports:
+#       - '3002:3002'
+#     depends_on:
+#       - postgres
+#     env_file:
+#       - ../../.env
+#     restart: unless-stopped
+
+# volumes:
+#   treasury_postgres_production_data:
