@@ -17,7 +17,7 @@ services:
     image: treasury-backend-staging:latest
     build:
       context: ../../
-      dockerfile: docker/staging/Dockerfile
+      dockerfile: docker/Dockerfile
     container_name: treasury-backend-staging
     ports:
       - '3002:3002'
